@@ -153,4 +153,44 @@ public class DepartamentoDAO implements IBaseDatos<Departamento> {
 	   
 	   return result;
 	}
+        
+        public List<Departamento> RecursosProyecto() {
+		List<Departamento> departamentos= null;
+	    String query = "select nom_proy, count(id_rec) as total from Proyecto Left join Recurso using (id_proyecto) group by nom_proy";
+	    Connection connection = null;
+            try {
+                connection = Conexion.getConnection();
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(DepartamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+	    try {
+	    Statement st = connection.createStatement();
+	    ResultSet rs = st.executeQuery(query);
+	    int total =0;
+	    String nombre = null;
+	
+	    while (rs.next()){
+	    	if(departamentos == null){
+	    		departamentos= new ArrayList<Departamento>();
+	    	}
+	      
+	        Departamento registro= new Departamento();
+                nombre = rs.getString("nom_depto");
+	        registro.setNom_departamento(nombre) ;
+                
+	        total = rs.getInt("total");
+	        registro.setId_departamento(total);
+	               
+	        
+	        departamentos.add(registro);
+	    }
+	    st.close();
+	    
+	    } catch (SQLException e) {
+			System.out.println("Problemas al obtener la busqueda");
+			e.printStackTrace();
+		}
+	    
+	    return departamentos;
+	}
 }
