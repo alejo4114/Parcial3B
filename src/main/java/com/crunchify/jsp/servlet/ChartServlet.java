@@ -5,7 +5,9 @@
  */
 package com.crunchify.jsp.servlet;
 
+import edu.co.sergio.mundo.dao.ColmenaDAO;
 import edu.co.sergio.mundo.dao.RecoleccionDAO;
+import edu.co.sergio.mundo.vo.Colmena;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.io.IOException;
@@ -51,8 +53,14 @@ public class ChartServlet extends HttpServlet {
 
         DefaultPieDataset dataset = new DefaultPieDataset();
         //Crear la capa de servicios que se enlace con el DAO
-        dataset.setValue("Panales con alimento", 80.0);
-        dataset.setValue("Panales sin alimento", 20.0);
+        ColmenaDAO cd = new ColmenaDAO();
+        for (int i = 0; i < cd.PanalALimentos().size(); i++) {
+            Colmena colmena=cd.PanalALimentos().get(i);
+            
+            
+            dataset.setValue("Panales con alimento",colmena.getPan_Alim()*10);
+        }
+        
 
         boolean legend = true;
         boolean tooltips = false;

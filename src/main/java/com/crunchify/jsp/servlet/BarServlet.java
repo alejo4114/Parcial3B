@@ -49,9 +49,9 @@ public class BarServlet extends HttpServlet {
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         RecoleccionDAO rdao = new RecoleccionDAO();
-        dataset.addValue(20.0, "Colmena 1", "Colmena 1");
-        dataset.addValue(8.0, "Colmena 2", "Colmena 1");
-        dataset.addValue(0.0, "Colmena 7", "Colmena 1");
+        dataset.addValue(20.0, "Colmena 1", "municipio 1");
+        dataset.addValue(8.0, "Colmena 2", "municipio 1");
+        dataset.addValue(0.0, "Colmena 7", "municipio 1");
 //        
 //        for (int i = 0; i < 10; i++) {
 //            
