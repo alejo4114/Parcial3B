@@ -41,6 +41,13 @@ public class ChartServlet extends HttpServlet {
 		int height = 350;
 		ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
 
+                response.setContentType("image/png");
+		OutputStream outputStream2 = response.getOutputStream();
+		JFreeChart chart2 = getChart2();
+		int width2 = 500;
+		int height2 = 350;
+		ChartUtilities.writeChartAsPNG(outputStream2, chart2, width2, height2);
+                
 	}
 
 	public JFreeChart getChart() {
@@ -63,7 +70,7 @@ public class ChartServlet extends HttpServlet {
 		return chart;
 	}
         
-        public JFreeChart getChar2t() {
+        public JFreeChart getChart2() {
 		
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         dataset.addValue(25.0, "Series 1", "Category 1");   
