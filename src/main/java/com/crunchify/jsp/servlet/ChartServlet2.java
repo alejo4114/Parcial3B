@@ -42,7 +42,7 @@ public class ChartServlet2 extends HttpServlet {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         dataset.addValue();
 
-        JFreeChart grafica = ChartFactory.createBarChart("Visitas diarias","Días", "Visitas", dataset,PlotOrientation.HORIZONTAL, true, true, false);
+       // JFreeChart grafica = ChartFactory.createBarChart("Visitas diarias","Días", "Visitas", dataset,PlotOrientation.HORIZONTAL, true, true, false);
         
         
         return null;
