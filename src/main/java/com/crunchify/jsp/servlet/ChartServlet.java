@@ -37,15 +37,14 @@ public class ChartServlet extends HttpServlet {
 		
                 DefaultPieDataset dataset = new DefaultPieDataset();
 	        //Crear la capa de servicios que se enlace con el DAO
-                dataset.setValue("Ford", 23.3);
-		dataset.setValue("Chevy", 32.4);
-		dataset.setValue("Yugo", 44.2);
+                dataset.setValue("Paneles con alimento", 80.0);
+		dataset.setValue("Paneles sin alimento", 20.0);
 
 		boolean legend = true;
 		boolean tooltips = false;
 		boolean urls = false;
 
-		JFreeChart chart = ChartFactory.createPieChart("Cars", dataset, legend, tooltips, urls);
+		JFreeChart chart = ChartFactory.createPieChart("Informacion panal colmena 1", dataset, legend, tooltips, urls);
 
 		chart.setBorderPaint(Color.GREEN);
 		chart.setBorderStroke(new BasicStroke(5.0f));
