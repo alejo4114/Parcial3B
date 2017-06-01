@@ -81,9 +81,9 @@ public class ChartServlet extends HttpServlet {
             
         }
         
-        dataset.addValue(25.0, "Colmena 1", "Category 1");
-        dataset.addValue(34.0, "Colmena 2", "Category 1");
-        dataset.addValue(19.0, "Colmena 7", "Category 1");
+        dataset.addValue(20.0, "Colmena 1", "Colmena 1");
+        dataset.addValue(8.0, "Colmena 2", "Colmena 1");
+        dataset.addValue(0.0, "Colmena 7", "Colmena 1");
 
 
         JFreeChart chart2 = ChartFactory.createBarChart3D(
