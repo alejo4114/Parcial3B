@@ -59,7 +59,7 @@ public class ChartServlet extends HttpServlet {
             
             
             dataset.setValue("Panales con alimento",colmena.getPan_Alim()*10);
-            dataset.setValue("Panales con alimento",100-colmena.getPan_Alim()*10);
+            dataset.setValue("Panales sin alimento",100-(colmena.getPan_Alim()*10));
             
         }
         
