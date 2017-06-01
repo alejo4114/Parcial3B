@@ -41,7 +41,7 @@ public class ChartServlet extends HttpServlet {
 		int height = 350;
 		ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
 
-                response.setContentType("image/png");
+                response.setContentType("image2/png");
 		OutputStream outputStream2 = response.getOutputStream();
 		JFreeChart chart2 = getChart2();
 		int width2 = 1000;
@@ -81,7 +81,7 @@ public class ChartServlet extends HttpServlet {
         dataset.addValue(33.0, "Series 3", "Category 2");   
 
 		
-        JFreeChart chart = ChartFactory.createBarChart3D(
+        JFreeChart chart2 = ChartFactory.createBarChart3D(
             "3D Bar Chart Demo",      // chart title
             "Category",               // domain axis label
             "Value",                  // range axis label
@@ -92,7 +92,7 @@ public class ChartServlet extends HttpServlet {
             false                     // urls
         );
 
-        CategoryPlot plot = chart.getCategoryPlot();
+        CategoryPlot plot = chart2.getCategoryPlot();
         CategoryAxis axis = plot.getDomainAxis();
         axis.setCategoryLabelPositions(
             CategoryLabelPositions.createUpRotationLabelPositions(Math.PI / 8.0)
@@ -102,7 +102,7 @@ public class ChartServlet extends HttpServlet {
         renderer.setItemLabelsVisible(true);
         BarRenderer r = (BarRenderer) renderer;
         r.setMaximumBarWidth(0.05);
-        return chart;
+        return chart2;
 
 		
 	}
