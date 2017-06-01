@@ -42,9 +42,7 @@ public class ChartServlet extends HttpServlet {
         int width = 500;
         int height = 350;
         ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
         response.setContentType("image2/png");
         OutputStream outputStream2 = response.getOutputStream();
         JFreeChart chart2 = getChart2();
