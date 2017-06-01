@@ -39,13 +39,13 @@ public class BarServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("image/png");
         OutputStream outputStream2 = response.getOutputStream();
-        JFreeChart chart2 = getChart2();
+        JFreeChart chart2 = getChart();
         int width2 = 500;
         int height2 = 350;
         ChartUtilities.writeChartAsPNG(outputStream2, chart2, width2, height2);
 	}
 
-	public JFreeChart getChart2() {
+	public JFreeChart getChart() {
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         RecoleccionDAO rdao = new RecoleccionDAO();
@@ -59,7 +59,7 @@ public class BarServlet extends HttpServlet {
         dataset.addValue(0.0, "Colmena 7", "Colmena 1");
 
 
-        JFreeChart chart2 = ChartFactory.createBarChart3D(
+        JFreeChart chart = ChartFactory.createBarChart3D(
                 "Kilos de Miel", // chart title
                 "Colmena", // domain axis label
                 "Value", // range axis label
@@ -70,7 +70,7 @@ public class BarServlet extends HttpServlet {
                 false // urls
         );
 
-        CategoryPlot plot = chart2.getCategoryPlot();
+        CategoryPlot plot = chart.getCategoryPlot();
         CategoryAxis axis = plot.getDomainAxis();
         axis.setCategoryLabelPositions(
                 CategoryLabelPositions.createUpRotationLabelPositions(Math.PI / 8.0)
@@ -80,7 +80,7 @@ public class BarServlet extends HttpServlet {
         renderer.setItemLabelsVisible(true);
         BarRenderer r = (BarRenderer) renderer;
         r.setMaximumBarWidth(0.05);
-        return chart2;
+        return chart;
 
     }
 

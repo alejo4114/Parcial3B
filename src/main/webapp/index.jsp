@@ -38,6 +38,6 @@ body {
     
     %>
     <img src="ChartServlet" />
-    <img src="BarServlet">
+    <img src="BarServlet"  />
 </body>
 </html>
