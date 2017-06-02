@@ -5,9 +5,9 @@
  */
 package com.crunchify.jsp.servlet;
 
-
 import com.crunchify.jsp.servlet.CustomRenderer;
 import edu.co.sergio.mundo.dao.RecoleccionDAO;
+import edu.co.sergio.mundo.vo.Recoleccion;
 import java.awt.Color;
 import java.awt.Paint;
 import java.io.IOException;
@@ -31,34 +31,32 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 import org.jfree.data.general.DefaultPieDataset;
 
-
 public class BarServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("image/png");
         OutputStream outputStream2 = response.getOutputStream();
         JFreeChart chart = getChart();
         int width2 = 500;
         int height2 = 350;
         ChartUtilities.writeChartAsPNG(outputStream2, chart, width2, height2);
-	}
+    }
 
-	public JFreeChart getChart() {
+    public JFreeChart getChart() {
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         RecoleccionDAO rdao = new RecoleccionDAO();
-        dataset.addValue(20.0, "Colmena 1", "municipio 1");
-        dataset.addValue(8.0, "Colmena 2", "municipio 1");
-        dataset.addValue(0.0, "Colmena 7", "municipio 1");
-//        
-//        for (int i = 0; i < 10; i++) {
-//            
-//        }
-        
-        
 
+        for (int i = 0; i < rdao.findAll().size(); i++) {
+            Recoleccion re = rdao.findAll().get(i);
+
+            dataset.addValue(re.getKilos_Miel(), re.getId_Colmena(), "Municipio1");
+            dataset.addValue(re.getKilos_Miel(), re.getId_Colmena(), "Municipio2");
+            dataset.addValue(re.getKilos_Miel(), re.getId_Colmena(), "Municipio3");
+
+        }
 
         JFreeChart chart = ChartFactory.createBarChart3D(
                 "Kilos de Miel", // chart title
