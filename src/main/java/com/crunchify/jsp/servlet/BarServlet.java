@@ -52,9 +52,9 @@ public class BarServlet extends HttpServlet {
         for (int i = 0; i < rdao.findAll().size(); i++) {
             Recoleccion re = rdao.findAll().get(i);
 
-            dataset.addValue(re.getKilos_Miel(), re.getId_Colmena(), "Municipio1");
-            dataset.addValue(re.getKilos_Miel(), re.getId_Colmena(), "Municipio2");
-            dataset.addValue(re.getKilos_Miel(), re.getId_Colmena(), "Municipio3");
+            dataset.addValue(re.getKilos_Miel(), "colmena 1", "Municipio1");
+            dataset.addValue(re.getKilos_Miel(), "Colmena 2", "Municipio2");
+            dataset.addValue(re.getKilos_Miel(), "Colemna 7", "Municipio3");
 
         }
 
